@@ -22,8 +22,10 @@ MATLAB dispone di vari formati numerici che visualizzano, quando necessario, i n
 Oltre a questi esistono due comandi per trasformare i numeri da doppia a singola precisione e viceversa:
 \begin{itemize}
 
-	\item	\texttt{single(x)}: converte un numero in precisione singola.
+	\item	\texttt{single(x)}: converte un numero in precisione singola. Può causare inconsistenze, meglio usare 
+	\textit{double(single(pi))}.
 	
 	\item 	\texttt{double(x)}: converte un numero in precisione doppia.
-
 \end{itemize}
+
+Esempio: \texttt{format(long)}: cambia la formattazione, come il numero di cifre dopo la virgola.
