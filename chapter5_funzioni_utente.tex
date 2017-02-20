@@ -1,0 +1,19 @@
+\chapter{Le funzioni definite dall'utente}
+\section{Definire una funzione}
+In MATLAB un utente può definire una funzione scrivendo un M-file, ovvero un file con estensione \textit{.m}.
+Per creare una funzione la sintassi da utilizzare all'interno del file \textit{.m} è la seguente:
+
+$$  \texttt{function [y1, ..., yN] = myfunc(x1, ..., xN)}$$
+
+Dove:
+\begin{enumerate}
+	\item	\texttt{function} è una keyword obbligatoria.
+	\item	\texttt{y1, ..., yN} sono i parametri di output della funzione, che possono avere nomi arbitrari.
+	\item 	\texttt{myfunc} è il nome della funzione che si vuole creare.
+	\item	\texttt{x1, ..., xN} sono i parametri di input della funzione, che possono avere nomi arbitrari. 
+\end{enumerate}
+
+Una volta scritta questa intestazione il corpo della funzione viene scritto sotto di essa. \\
+Per richiamare la funzione definita, è sufficiente utilizzare la stessa segnatura senza la keyword \texttt{function}. 
+\break \break
+\textbf{N.B.} Si è soliti salvare la funzione in un file \textit{.m} con lo stesso nome della funzione.

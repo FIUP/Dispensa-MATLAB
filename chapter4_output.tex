@@ -1,0 +1,95 @@
+\chapter{Comandi di output}
+MATLAB dispone di due principali comandi di output a video: \texttt{disp} e \texttt{frpint}.
+\section{Output su video}
+\subsection{Il comando \texttt{disp}}
+Il comando \texttt{disp} serve per visualizzare una stringa o il valore di una variabile. \\
+Le stringhe che si vogliono visualizzare devono essere incluse tra due apostrofi semplici \texttt{'}.
+\break
+			
+Esempio di utilizzo con una stringa semplice: \\
+\texttt{>> disp('Questa stringa verrà visualizzata a video')} 
+\break
+			
+Per visualizzare il valore di una variabile è necessario utilizzare la funzione \texttt{num2str(x)} che converte il 
+valore di \texttt{x} in stringa. Inoltre per concatenare le due stringhe bisogna trattare la loro unione come un 
+vettore. 
+\break
+			
+Esempio di utilizzo con una stringa ed una variabile: \\
+\texttt{>> disp(['Il valore di pi è: ', num2str(pi), 'in formato short.'])}
+
+\subsection{Il comando \texttt{fprint}}
+Questo comando server per visualizzare un insieme di dati di output con un certo formato. Esso inoltre ha una gestione 
+migliore della concatenazione tra stringhe e numeri.
+\break
+			
+Esempio di utilizzo con una stringa semplice: \\
+\texttt{>> fprint('Questa stringa verrà visualizzata a video')} \\
+\texttt{Questa stringa verrà visualizzata a video>>}
+\break
+			
+All'interno di esso possono essere usati diversi caratteri speciali:
+\begin{itemize}
+	\item	\texttt{\textbackslash t}: viene usato per inserire una tabulazione verso destra.
+	\item	\texttt{\textbackslash n}: viene usato per inserire una nuova riga.
+\end{itemize}
+
+Esempio di utilizzo con una caratteri speciali: \\
+\texttt{>> fprint('Questa stringa verrà visualizzata a video \textbackslash n')} \\
+\texttt{Questa stringa verrà visualizzata a video} \\
+\texttt{>>}
+\break
+
+\newpage
+E' anche possibile inserire numeri all'interno di una stringa, e definire la loro visualizzazione mediante la seguente 
+struttura:
+$$\texttt{\textcolor{Green}{\%}\textcolor{Blue}{3\$}\textcolor{Dandelion}{0-}\textcolor{purple}{12}
+\textcolor{Cyan}{.5}\textcolor{Maroon}{b}\textcolor{Violet}{u}}$$
+Dove i campi hanno il seguente significato (quelli in rosso sono quelli obbligatori:
+\begin{enumerate}
+	\item	\textcolor{red}{\texttt{\%}}: simbolo obbligatorio per identificare che si vuole 
+						rappresentare un numero.
+	\item 	\texttt{3\$}: identificatore della posizione dell'argomento nella funzione di input. \\
+						\textcolor{red}{N.B.} Obbligatorio se si vogliono inserire più numeri in una stringa.
+	\item 	\texttt{0-}: flags, possono essere zero o più tra i seguenti:
+			\begin{itemize}
+				\item	'\texttt{-}': giustifica il testo a sinistra.
+				\item	'\texttt{+}': stampa sempre il segno (+ o -) per qualsiasi valore.
+				\item	'\texttt{ }': inserisce uno spazio bianco prima del valore.
+				\item	'\texttt{0}': inserisci degli 0 per riempire la lunghezza del campo.
+				\item 	'\texttt{\#}': modifica la conversione numerica selezionata.			
+			\end{itemize}
+						
+	\item	\textcolor{red}{\texttt{12}}: lunghezza del campo. Indica il numero minimo di caratteri da 
+			stampare.
+	\item	\textcolor{red}{\texttt{.5}}: precisione. 
+			\begin{itemize}
+				\item	Per \texttt{\%f} (floating point) o \texttt{\%e} (esponenziale), indica il
+						numero di cifre da tenere dopo la virgola.
+				\item 	Per \texttt{\%g} (il più compatto tra \texttt{\%f} e \texttt{\%e}), indica il
+						numero di cifre significative da considerare.
+			\end{itemize}
+	\item 	\texttt{b}: sottotipo.
+	\item	\texttt{u}: carattere di conversione.
+\end{enumerate}
+Esempio di utilizzo con una caratteri speciali: \\
+\texttt{>> a = 10.123456789;} \\
+\texttt{>> b = 15.123456789;} \\
+\texttt{>> fprint('La variabile b vale \%2\$1.5f, mentre a vale \%1\$2.5e \textbackslash n', a, b)} \\
+\texttt{La variabile b vale 1.51235e+01, mentre a vale 10.12346} \\
+\texttt{>> } \\
+
+\section{Output su file}
+All'interno di MATLAB è possibile anche eseguire stampe su file. Per fare ciò è sufficiente fare come segue.
+\begin{enumerate}
+	\item	Creare una variabile che contenga il file aperto tramite il comando \texttt{fopen('\textit{file
+			\_name}', '\textit{mode}')}. \\
+			Esempio: \\ \texttt{fileID = fopen('file.txt', 'w');} // '\texttt{w}' sta per 'write' (scrittura)
+			
+	\item 	Eseguire la stampa sul file tramite il comando \texttt{fprintf(\textit{file\_id}, \textit{espressione} [, 	
+	\textit{variabili}])}. \\
+			Esempio: \\ \texttt{fprintf(fileID,'\%6s \%12s \textbackslash r\textbackslash n','x','exp(x)');}
+			
+	\item 	Chiudere il file tramite il comando \texttt{fclose(\textit{file\_id})}. \\
+			Esempio: \\ \texttt{fclose(fileID);}
+\end{enumerate}
