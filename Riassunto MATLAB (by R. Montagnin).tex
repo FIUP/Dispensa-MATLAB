@@ -1,0 +1,564 @@
+\documentclass[12pt,a4paper,oneside]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[document]{ragged2e}
+\usepackage{fullpage}
+\usepackage{color}
+\usepackage{geometry}
+\geometry{
+a4paper,
+total={210mm,297mm},
+left=10mm,
+right=10mm,
+top=10mm,
+bottom=20mm,
+}
+
+\usepackage{fancyhdr}
+\usepackage{amsfonts}
+\usepackage[T1]{fontenc}
+\setcounter{section}{-1}
+\usepackage{enumitem}
+\usepackage{relsize}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage[dvipsnames]{xcolor}
+\renewcommand{\contentsname}{Indice}
+
+\usepackage{ragged2e}
+\renewcommand{\chaptername}{Capitolo}
+
+\begin{document}
+
+\title{Riassunto di MATLAB}
+\author{Riccardo Montagnin}
+\date{}
+
+\maketitle
+
+\tableofcontents
+
+\chapter{Utility generali}
+All'interno di MATLAB esistono vari comandi che aiutano l'utente a districarsi tra le varie sue funzionalità.
+Tra i più importanti ricordiamo sicuramente:
+
+\begin{itemize}
+	
+	\item 	\textbf{help} \\ 
+		  	Questo comando permette di visualizzare la schermata di aiuto per una data funzionalità, e può essere 
+		  	utilizzato in due modi differenti:
+		  	\begin{enumerate}
+		  	
+				\item	\texttt{help}: elenca tutti i topic principali di aiuto nella Finestra Comandi. Ogni topic
+						principale corrisponde al nome di una cartella nel percorso di ricerca di MATLAB.
+						
+				\item	\texttt{help \textcolor{blue}{nome}}: visualizza il testo di aiuto per la funzionalità 
+						specificata da \texttt{\textcolor{blue}{nome}}, come una funzione, un metodo, una classe, 
+						una toolbox o una variabile.
+		  	
+		  	\end{enumerate}
+		  	
+	\item	\textbf{lookfor} \\
+			Questo comando viene utilizzato quando si vuole trovare il nome di una funzione che svolga un dato
+			compito. Viene utilizzata nei seguenti modi:
+			\begin{enumerate}
+			
+				\item 	\texttt{lookfor \textcolor{blue}{topic}}: ricerca la stringa \textcolor{blue}{topic}
+						all'interno della prima riga di commento (H1) dei programmi MATLAB trovati all'interno del
+						percorso di ricerca. Per ogni file per il quale si è trovata una corrispondenza, MATLAB
+						mostra l'intera riga H1.
+						
+				\item 	\texttt{lookfor \textcolor{blue}{topic} \textcolor{red}{-all}}: ricerca una corrispondenza 
+						per la stringa \textcolor{blue}{topic} nell'\textcolor{red}{intero} primo blocco di 
+						commento dei programmi nel percorso di ricerca.
+			
+			\end{enumerate}
+	
+\end{itemize}
+
+
+\newpage
+
+\chapter{Utility numeriche}
+I comandi più utili dal punto di vista puramente numerico sono i seguenti.
+
+\section{Costanti macchina}
+\begin{itemize}
+
+	\item	\texttt{realmin}: mostra il più piccolo numero macchina rappresentabile. \\
+			Valore: \texttt{2.2250738585072 e-308}
+	
+	\item 	\texttt{realmax}: mostra il più grande numero macchina rappresentabile. \\
+			Valore: \texttt{1.79769313486232 e+308}
+			
+	\item	\texttt{eps}: mostra la precisione di macchina, ovvero la più piccola quantità di modulo diverso da 0
+			che, sommato ad 1, restituisce un risultato diverso da 1. Esso è anche il più grande errore relativo
+			compiuto nell'approssimazione di un numero reale all'interno dell'intervallo \texttt{[realmin, 
+			realmax]}. \\
+			Valore: \texttt{2.2204 e-16}
+
+\end{itemize}
+
+\section{Costanti numeriche}
+\begin{itemize}
+
+	\item 	\texttt{pi}: rappresenta l'approssimazione di $\pi$.
+	
+	\item 	\texttt{Inf}: rappresenta l'approssimazione di $\infty$.
+			
+	\item	\texttt{NaN}: Not a Number, rappresenta un risultato non computabile, come quello derivante da una
+			espressione come $0/0$ o qualsiasi altra \textcolor{blue}{forma indeterminata}.
+		
+\end{itemize}
+
+\section{Operazioni numeriche}
+
+\paragraph{Operazioni aritmetiche}
+\begin{itemize}
+
+	\item	\texttt{+} : somma.
+	
+	\item	\texttt{-} : differenza.
+	
+	\item	\texttt{*} : prodotto.
+	
+	\item	\texttt{/} : quoziente.
+	
+	\item	\texttt{\^} : potenza.
+	
+\end{itemize}	
+	
+	
+\paragraph{Funzioni elementari}
+Sia \texttt{x} una qualsiasi espressione, costante, o un qualsiasi vettore. Allora in MATLAB esistono le seguenti.
+\begin{itemize}	
+	
+	\item	\texttt{abs(x)} : valore assoluto.
+	
+	\item	\texttt{sin(x)} : seno.
+	
+	\item	\texttt{cos(x)} : coseno.
+	
+	\item	\texttt{tan(x)} : tangente.
+	
+	\item	\texttt{cot(x)} : cotangente.
+	
+	\item	\texttt{asin(x)} : arco seno.
+	
+	\item	\texttt{acos(x)} : arco coseno.
+	
+	\item	\texttt{atan(x)} : arco tangente.
+	
+	\item	\texttt{sinh(x)} : seno iperbolico.
+	
+	\item	\texttt{cosh(x)} : coseno iperbolico.
+	
+	\item	\texttt{tanh(x)} : tangente iperbolica.
+	
+	\item	\texttt{asinh(x)} : arco seno iperbolico.
+	
+	\item	\texttt{acosh(x)} : arco coseno iperbolico.
+	
+	\item	\texttt{atanh(x)} : arco tangente iperbolica.
+	
+	\item	\texttt{sqrt(x)} : radice quadrata.
+	
+	\item	\texttt{exp(x)} : esponenziale.
+	
+	\item	\texttt{log2(x)} : logaritmo in base 2.
+
+	\item	\texttt{log10(x)} : logaritmo in base 10.
+	
+	\item	\texttt{log(x)} : logaritmo naturale (base $e$).
+	
+	\item	\texttt{fix(x)} : arrotondamento verso lo 0.
+	
+	\item	\texttt{round(x)} : arrotondamento verso l'intero più vicino (per eccesso o difetto).
+	
+	\item	\texttt{floor(x)} : arrotondamento verso $-\infty$ (per difetto).
+	
+	\item	\texttt{ceil(x)} : arrotondamento verso $+\infty$ (per eccesso).
+	
+	\item	\texttt{sign(x)} : segno \\ 
+	Valore: \texttt{-1} se l'elemento è $< 0$,  \texttt{0} se l'elemento è $0$,  \texttt{+1} se l'elemento è $> 
+	0$).
+	
+	\item	\texttt{rem(x)} : resto di una divisone.
+
+\end{itemize}
+
+\newpage
+
+\chapter{Formati di visualizzazione dei numeri}
+\section{Come MATLAB memorizza i numeri}
+MATLAB dispone di vari formati numerici che visualizzano, quando necessario, i numeri macchina in modi diversi:
+\begin{itemize}
+
+	\item	\texttt{format \textcolor{blue}{short}}: notazione decimale con 4 cifre dopo la virgola.
+	
+	\item	\texttt{format \textcolor{blue}{short} \textcolor{red}{e}}: notazione \textcolor{red}{esponenziale} 
+			con 4 cifre dopo la virgola.
+			
+	\item	\texttt{format \textcolor{blue}{long}}: decimale con 15 cifre dopo la virgola in doppia precisione, e 
+			7 cifre dopo la virgola in singola precisione.
+			
+	\item	\texttt{format \textcolor{blue}{long} \textcolor{red}{e}}: notazione \textcolor{red}{esponenziale} 
+			con 15 cifre dopo la virgola in doppia precisione, e 7 cifre dopo la virgola in singola precisione.
+			
+	\item	\texttt{format \textcolor{blue}{long} \textcolor{red}{g}}: la più compatta tra \texttt{format long} e 
+			\texttt{format long e}.
+
+\end{itemize}
+
+Oltre a questi esistono due comandi per trasformare i numeri da doppia a singola precisione e viceversa:
+\begin{itemize}
+
+	\item	\texttt{single(x)}: converte un numero in precisione singola.
+	
+	\item 	\texttt{double(x)}: converte un numero in precisione doppia.
+
+\end{itemize}
+	
+
+\newpage
+
+\chapter{Comandi di output}
+MATLAB dispone di due principali comandi di output a video: \texttt{disp} e \texttt{frpint}.
+\section{Output su video}
+\subsection{Il comando \texttt{disp}}
+Il comando \texttt{disp} serve per visualizzare una stringa o il valore di una variabile. \\
+Le stringhe che si vogliono visualizzare devono essere incluse tra due apostrofi semplici \texttt{'}.
+\break
+			
+Esempio di utilizzo con una stringa semplice: \\
+\texttt{>> disp('Questa stringa verrà visualizzata a video')} 
+\break
+			
+Per visualizzare il valore di una variabile è necessario utilizzare la funzione \texttt{num2str(x)} che converte il valore di \texttt{x} in stringa. Inoltre per concatenare le due stringhe bisogna trattare la loro unione come un vettore. 
+\break
+			
+Esempio di utilizzo con una stringa ed una variabile: \\
+\texttt{>> disp(['Il valore di pi è: ', num2str(pi), 'in formato short.'])}
+
+\subsection{Il comando \texttt{fprint}}
+Questo comando server per visualizzare un insieme di dati di output con un certo formato. Esso inoltre ha una gestione migliore della concatenazione tra stringhe e numeri.
+\break
+			
+Esempio di utilizzo con una stringa semplice: \\
+\texttt{>> fprint('Questa stringa verrà visualizzata a video')} \\
+\texttt{Questa stringa verrà visualizzata a video>>}
+\break
+			
+All'interno di esso possono essere usati diversi caratteri speciali:
+\begin{itemize}
+	\item	\texttt{\textbackslash t}: viene usato per inserire una tabulazione verso destra.
+	\item	\texttt{\textbackslash n}: viene usato per inserire una nuova riga.
+\end{itemize}
+
+Esempio di utilizzo con una caratteri speciali: \\
+\texttt{>> fprint('Questa stringa verrà visualizzata a video \textbackslash n')} \\
+\texttt{Questa stringa verrà visualizzata a video} \\
+\texttt{>>}
+\break
+
+\newpage
+E' anche possibile inserire numeri all'interno di una stringa, e definire la loro visualizzazione mediante la seguente struttura:
+$$\texttt{\textcolor{Green}{\%}\textcolor{Blue}{3\$}\textcolor{Dandelion}{0-}\textcolor{purple}{12}
+\textcolor{Cyan}{.5}\textcolor{Maroon}{b}\textcolor{Violet}{u}}$$
+Dove i campi hanno il seguente significato (quelli in rosso sono quelli obbligatori:
+\begin{enumerate}
+	\item	\textcolor{red}{\texttt{\%}}: simbolo obbligatorio per identificare che si vuole 
+						rappresentare un numero.
+	\item 	\texttt{3\$}: identificatore della posizione dell'argomento nella funzione di input. \\
+						\textcolor{red}{N.B.} Obbligatorio se si vogliono inserire più numeri in una stringa.
+	\item 	\texttt{0-}: flags, possono essere zero o più tra i seguenti:
+			\begin{itemize}
+				\item	'\texttt{-}': giustifica il testo a sinistra.
+				\item	'\texttt{+}': stampa sempre il segno (+ o -) per qualsiasi valore.
+				\item	'\texttt{ }': inserisce uno spazio bianco prima del valore.
+				\item	'\texttt{0}': inserisci degli 0 per riempire la lunghezza del campo.
+				\item 	'\texttt{\#}': modifica la conversione numerica selezionata.			
+			\end{itemize}
+						
+	\item	\textcolor{red}{\texttt{12}}: lunghezza del campo. Indica il numero minimo di caratteri da 
+			stampare.
+	\item	\textcolor{red}{\texttt{.5}}: precisione. 
+			\begin{itemize}
+				\item	Per \texttt{\%f} (floating point) o \texttt{\%e} (esponenziale), indica il
+						numero di cifre da tenere dopo la virgola.
+				\item 	Per \texttt{\%g} (il più compatto tra \texttt{\%f} e \texttt{\%e}), indica il
+						numero di cifre significative da considerare.
+			\end{itemize}
+	\item 	\texttt{b}: sottotipo.
+	\item	\texttt{u}: carattere di conversione.
+\end{enumerate}
+Esempio di utilizzo con una caratteri speciali: \\
+\texttt{>> a = 10.123456789;} \\
+\texttt{>> b = 15.123456789;} \\
+\texttt{>> fprint('La variabile b vale \%2\$1.5f, mentre a vale \%1\$2.5e \textbackslash n', a, b)} \\
+\texttt{La variabile b vale 1.51235e+01, mentre a vale 10.12346} \\
+\texttt{>> } \\
+
+\section{Output su file}
+All'interno di MATLAB è possibile anche eseguire stampe su file. Per fare ciò è sufficiente fare come segue.
+\begin{enumerate}
+	\item	Creare una variabile che contenga il file aperto tramite il comando \texttt{fopen('\textit{file
+			\_name}', '\textit{mode}')}. \\
+			Esempio: \\ \texttt{fileID = fopen('file.txt', 'w');} // '\texttt{w}' sta per 'write' (scrittura)
+			
+	\item 	Eseguire la stampa sul file tramite il comando \texttt{fprintf(\textit{file\_id}, \textit{espressione} [, 	\textit{variabili}])}. \\
+			Esempio: \\ \texttt{fprintf(fileID,'\%6s \%12s \textbackslash r\textbackslash n','x','exp(x)');}
+			
+	\item 	Chiudere il file tramite il comando \texttt{fclose(\textit{file\_id})}. \\
+			Esempio: \\ \texttt{fclose(fileID);}
+\end{enumerate}
+
+
+\newpage
+
+\chapter{Le funzioni definite dall'utente}
+\section{Definire una funzione}
+In MATLAB un utente può definire una funzione scrivendo un M-file, ovvero un file con estensione \textit{.m}.
+Per creare una funzione la sintassi da utilizzare all'interno del file \textit{.m} è la seguente:
+
+$$  \texttt{function [y1, ..., yN] = myfunc(x1, ..., xN)}$$
+
+Dove:
+\begin{enumerate}
+	\item	\texttt{function} è una keyword obbligatoria.
+	\item	\texttt{y1, ..., yN} sono i parametri di output della funzione, che possono avere nomi arbitrari.
+	\item 	\texttt{myfunc} è il nome della funzione che si vuole creare.
+	\item	\texttt{x1, ..., xN} sono i parametri di input della funzione, che possono avere nomi arbitrari. 
+\end{enumerate}
+
+Una volta scritta questa intestazione il corpo della funzione viene scritto sotto di essa. \\
+Per richiamare la funzione definita, è sufficiente utilizzare la stessa segnatura senza la keyword \texttt{function}. \break \break
+\textbf{N.B.} Si è soliti salvare la funzione in un file \textit{.m} con lo stesso nome della funzione.
+
+
+\newpage
+
+\chapter{Istruzioni condizionali, cicli for e while}
+Come all'interno di molti linguaggi di programmazione, anche nel linguaggio MATLAB è possibile utilizzare le istruzioni condizionali e i cicli for e while.
+
+\section{Istruzioni condizionali}
+L'istruzione condizionale principalmente utilizzata è l'istruzione \texttt{if}: \break
+
+\begin{center}
+\texttt{if } \textit{espressione} \\ 
+\hspace{1.5cm}\textit{istruzioni}  \\
+\hspace{1cm}\texttt{elseif } \textit{espressione} \\ 
+\hspace{1.4cm}\textit{istruzioni}  \\
+\hspace{-1.8cm}\texttt{else} \\ 
+\hspace{1.4cm}\textit{istruzioni}  \\
+\hspace{-2cm}\texttt{end}
+\end{center}
+
+Oltre all'istruzione  \texttt{if} esiste anche quella di \texttt{switch}:
+
+\begin{center}
+\texttt{switch } \textit{espressione\_di\_switch} \\ 
+\hspace{1cm}\texttt{case } \textit{espressione\_di\_case} \\ 
+\hspace{1.4cm}\textit{istruzioni}  \\
+\hspace{1cm}\texttt{case } \textit{espressione\_di\_case} \\ 
+\hspace{1.4cm}\textit{istruzioni}  \\
+\hspace{2cm} \texttt{...} \\
+\hspace{-2cm}\texttt{otherwise } \\ 
+\hspace{1.4cm}\textit{istruzioni}  \\
+\hspace{-5cm}\texttt{end}
+\end{center}
+
+Gli operatori di confronto sono i seguenti:
+\begin{itemize}
+
+	\item	\texttt{== }: uguale.
+	\item	\texttt{\textasciitilde= }: non uguale.
+	\item	\texttt{< }: minore.
+	\item	\texttt{> }: maggiore.
+	\item	\texttt{<= }: minore o uguale.
+	\item 	\texttt{>= }: maggiore o uguale.
+
+\end{itemize}
+
+Inoltre più espressioni logiche possono essere combinate tra loro mediante i seguenti:
+\begin{itemize}
+
+	\item	\texttt{\&\& }: and.
+	\item	\texttt{|| }: or.
+	\item	\texttt{\textasciitilde }: not
+	\item	\texttt{\& }: and componente per componente.
+	\item	\texttt{| }: or componente per componente.
+
+\end{itemize}
+
+
+\section{Cicli \texttt{for} e \texttt{while}}
+\subsection{Il ciclo \texttt{for}}
+Il ciclo \texttt{for} itera una porzione di codice, al variare di certi indici. La sua scrittura è la seguente:
+\begin{center}
+\texttt{for } \textit{variabile} \texttt{=} \textit{vettore} \\ 
+\hspace{1.5cm}\textit{istruzioni}  \\
+\hspace{-3.5cm}\texttt{end}
+\end{center}
+
+Esempio: \\
+\texttt{>> s=0;} \\
+\texttt{for } \texttt{j = 1:10} \\ 
+\hspace{1cm}\texttt{s=s+j;}  \\
+\texttt{end}
+
+\subsection{Il ciclo \texttt{while}}
+Il ciclo \texttt{while}, a differenza di quello \texttt{for}, viene utilizzato quando \textbf{non è noto a priori} il numero di volte che il ciclo dovrà iterare. \\
+La sua scrittura è la seguente:
+\begin{center}
+\texttt{while } \textit{espressione\_logica} \\ 
+\hspace{1.5cm}\textit{istruzioni}  \\
+\hspace{-4.1cm}\texttt{end}
+\end{center}
+
+Esempio: \\
+\texttt{>> s=1;} \\
+\texttt{while } \texttt{s>0} \\ 
+\hspace{1cm}\texttt{s=rand(1)-0.5;}  \\
+\texttt{end}
+
+
+\newpage
+
+\chapter{I vettori}
+All'interno di MATLAB vengono spesso utilizzati i \textbf{vettori}, a tal punto che quasi tutte le funzioni e le operazioni disponibili sono definite anche su essi. Vediamo quindi come poter creare e trattare i vettori.
+
+\section{Creare un vettore riga}
+Per creare un vettore \textbf{riga} è sufficiente utilizzare la seguente segnatura:
+$$ \texttt{v = [x1 ... xN]} $$
+dove \texttt{x1, ..., xN} sono le componenti che si vogliono inserire nel vettore.
+
+Esempio: \\
+\texttt{>> v = [1 2 3]} \\
+\texttt{v = } \\
+\texttt{\hspace{0.5cm} 1 \hspace{0.5cm} 2 \hspace{0.5cm} 3} \\
+\texttt{>>}
+
+\section{Aggiungere elementi ad un vettore}
+Dato \texttt{v = [x1 ... xN]} un vettore qualsiasi, per aggiungere elementi a v si utilizza la seguente scrittura:
+$$ \texttt{v = [v xN+1 ... xM} $$
+dove \texttt{xN+1, ..., xM} sono le componenti aggiuntive che si vogliono inserire.
+
+Esempio: \\
+\texttt{>> v = [1 2 3];} \\
+\texttt{>> v = [v 9 10]} \\
+\texttt{v = } \\
+\texttt{\hspace{0.5cm} 1 \hspace{0.5cm} 2 \hspace{0.5cm} 3 \hspace{0.5cm} 9 \hspace{0.5cm} 10} \\
+\texttt{>>}
+
+\newpage
+
+\section{Selezionare gli elementi di un vettore}
+Per selezionare il \textbf{j-esimo} elemento di un vettore \texttt{v = [x1 ... xN]} qualsiasi si utilizza la seguente segnatura:
+$$ \texttt{v(j)} $$
+
+Esempio: \\
+\texttt{>> v = [5 4 9]} \\
+\texttt{v = } \\
+\texttt{\hspace{0.5cm} 5 \hspace{0.5cm} 4 \hspace{0.5cm} 9} \\
+\texttt{>> v(2)} \\
+\texttt{ans = } \\
+\texttt{\hspace{0.5cm} 4} \break
+
+Per selezionare invece l'\textbf{ultima} componente di un vettore si utilizza
+$$ \texttt{v(end)} $$
+
+Esempio: \\
+\texttt{>> v = [5 4 9]} \\
+\texttt{v = } \\
+\texttt{\hspace{0.5cm} 5 \hspace{0.5cm} 4 \hspace{0.5cm} 9} \\
+\texttt{>> v(end)} \\
+\texttt{ans = } \\
+\texttt{\hspace{0.5cm} 9} \break
+
+Per conoscere la lunghezza di un vettore, il comando da utilizzare è:
+$$\texttt{length(v)} $$
+
+Esempio: \\
+\texttt{>> v = [5 4 9]} \\
+\texttt{v = } \\
+\texttt{\hspace{0.5cm} 5 \hspace{0.5cm} 4 \hspace{0.5cm} 9} \\
+\texttt{>> length(v)} \\
+\texttt{ans = } \\
+\texttt{\hspace{0.5cm} 3} \break
+
+
+\section{Creare un vettore colonna}
+Per creare un vettore \textbf{colonna} si usa la seguente segnatura:
+$$ \texttt{v = [x1 ; ... ; xN]} $$
+dove \texttt{x1, ..., xN} sono le componenti da inserire nel vettore. \\
+Alternativamente, si può creare un vettore colonna partendo da un vettore riga tramite la funzione di \textbf{trasposizione}. \\
+Sia \texttt{x = [x1 ... xN]} un vettore riga, allora 
+$$ y = v' $$
+crea il vettore \texttt{y = [x1 ; ... ; xN]}, ovvero la trasposizione di x.
+
+\newpage
+
+\section{Creare un vettore equi-spaziato}
+Per creare un vettore \texttt{v} equi-spaziato in MATLAB è disponibile il seguente comando:
+$$ \texttt{v = (a:h:b)} $$
+Dove:
+\begin{itemize}
+	\item 	\texttt{a} è il punto iniziale.
+	\item	\texttt{h} è la spaziatura.
+	\item	\texttt{b} è il punto finale.
+\end{itemize}
+
+Se invece è noto il punto di inizio \texttt{a}, il punto di fine \texttt{b} e il numero di punti totali \texttt{N} si può utilizzare il comando seguente:
+$$ \texttt{v = linspace(a:b:N)} $$
+
+
+\section{Operazioni con i vettori}
+All'interno di MATLAB sono definite le seguenti funzioni elementari con i vettori:
+\begin{itemize}
+
+	\item	\texttt{+ }: addizione
+	\item	\texttt{- }: sottrazione
+	\item	\texttt{.* }: prodotto puntuale
+	\item	\texttt{./ }: quoziente puntuale
+	\item	\textbf{.\^}: potenza puntuale
+
+\end{itemize}
+
+Oltre ad esse sono definite anche tutte le funzioni elementari viste con gli scalari nella \textbf{Sezione 2.3}.
+
+
+\newpage
+
+\chapter{Disegnare le funzioni}
+\section{Il comando \texttt{plot}}
+All'interno di MATLAB è possibile disegnare il grafico delle funzioni, attraverso il comando \texttt{plot}.
+La segnatura di questo comando è la seguente:
+$$ \texttt{plot(X, Y)} $$
+Questo crea un grafico 2D dei dati in \texttt{Y} contro i corrispondenti dati in \texttt{X}.
+\begin{itemize}
+	\item 	Se \texttt{X} e \texttt{Y} sono entrambi vettori, devono avere lunghezza uguale. Disegnerà Y contro X.
+	\item	Se \texttt{X} e \texttt{Y} sono entrambi matrici, allora devono avere dimensione uguale. La funzione
+			disegnerà le colonne di \texttt{Y} contro le colonne di \texttt{X}.
+	\item	Se uno tra \texttt{X} e \texttt{Y} è un vettore e l'altro una matrice, allora la matrice deve avere
+			dimensioni tali per cui una delle sue dimensioni è uguale alla lunghezza del vettore. \\
+			Se il numero di righe della matrice è uguale alla lunghezza del vettore, allora \texttt{plot} 
+			disegnerà ogni colonna della matrice contro il vettore. Se il numero di colonne della matrice è uguale
+			alla lunghezza del vettore, disegnerà invece ogni riga della matrice contro il vettore. \\
+			Se la matrice è quadrata, allora disegnerà ogni colonna contro il vettore.
+	\item	Se uno tra \texttt{X} e \texttt{Y} è uno scalare e l'altro è una matrice o un vettore, allora disegna
+			dei punti. Per vedere tali punti bisogna però specificare un simbolo di marcatura, per esempio,
+			\texttt{plot(X, Y, 'o'}.
+\end{itemize}
+
+Oltre a questo, con il comando $$\texttt{plot(X, Y, LineSpec)}$$ è possibile impostare delle lo stile, il tratto e il colore della linea. \break \\
+Con $$\texttt{plot(X1,Y1,...,Xn,Yn)}$$ è invece possibile disegnare diverse coppie \texttt{X}, \texttt{Y} utilizzando gli stessi assi per le varie linee. \break \\
+
+\textcolor{Red}{\textbf{N.B.}} Per vedere tutte le opzioni della funzione \texttt{plot} è utile il comando \texttt{help plot}.
+
+
+
+
+
+
+\end{document}
