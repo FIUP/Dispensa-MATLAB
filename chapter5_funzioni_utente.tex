@@ -14,6 +14,14 @@ Dove:
 \end{enumerate}
 
 Una volta scritta questa intestazione il corpo della funzione viene scritto sotto di essa. \\
-Per richiamare la funzione definita, è sufficiente utilizzare la stessa segnatura senza la keyword \texttt{function}. 
+Per richiamare la funzione definita, è sufficiente utilizzare la stessa firma senza la keyword \texttt{function}. 
 \break \break
-\textbf{N.B.} Si è soliti salvare la funzione in un file \textit{.m} con lo stesso nome della funzione.
+\textbf{N.B.} Si è soliti salvare la funzione in un file \textit{.m} con lo stesso nome della funzione. 
+
+Senza ricorrere a nuovi files si può definire con il comando di definizione di funzione matematica @
+Esempio: \\
+\texttt{>> f=@(x) sin (x)+pi;} \\
+\texttt{f(0) } \\
+\texttt{feval(f ,0) } \% in alternativa \\
+\texttt{ans = } \\
+\texttt{\hspace{0.5cm} 3.1416} \break

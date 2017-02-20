@@ -16,7 +16,7 @@ Questo crea un grafico 2D dei dati in \texttt{Y} contro i corrispondenti dati in
 			Se la matrice è quadrata, allora disegnerà ogni colonna contro il vettore.
 	\item	Se uno tra \texttt{X} e \texttt{Y} è uno scalare e l'altro è una matrice o un vettore, allora disegna
 			dei punti. Per vedere tali punti bisogna però specificare un simbolo di marcatura, per esempio,
-			\texttt{plot(X, Y, 'o'}.
+			\texttt{plot(X, Y, 'o')}.
 \end{itemize}
 
 Oltre a questo, con il comando $$\texttt{plot(X, Y, LineSpec)}$$ è possibile impostare lo stile, il tratto e il 
@@ -26,3 +26,6 @@ gli stessi assi per le varie linee. \break \\
 
 \textcolor{Red}{\textbf{N.B.}} Per vedere tutte le opzioni della funzione \texttt{plot} è utile il comando \texttt{help 
 plot}.
+
+Per sovrapporre più grafici, si usano i comandi \texttt{holdon} e \texttt{holdoff}, intervallati dai plot da 
+sovrapporre.
