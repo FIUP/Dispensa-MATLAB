@@ -18,13 +18,13 @@ vettore.
 Esempio di utilizzo con una stringa ed una variabile: \\
 \texttt{>> disp(['Il valore di pi è: ', num2str(pi), 'in formato short.'])}
 
-\subsection{Il comando \texttt{fprint}}
+\subsection{Il comando \texttt{fprintf}}
 Questo comando server per visualizzare un insieme di dati di output con un certo formato. Esso inoltre ha una gestione 
 migliore della concatenazione tra stringhe e numeri.
 \break
 			
 Esempio di utilizzo con una stringa semplice: \\
-\texttt{>> fprint('Questa stringa verrà visualizzata a video')} \\
+\texttt{>> fprintf('Questa stringa verrà visualizzata a video')} \\
 \texttt{Questa stringa verrà visualizzata a video>>}
 \break
 			
@@ -35,10 +35,13 @@ All'interno di esso possono essere usati diversi caratteri speciali:
 \end{itemize}
 
 Esempio di utilizzo con una caratteri speciali: \\
-\texttt{>> fprint('Questa stringa verrà visualizzata a video \textbackslash n')} \\
+\texttt{>> fprintf('Questa stringa verrà visualizzata a video \textbackslash n')} \\
 \texttt{Questa stringa verrà visualizzata a video} \\
 \texttt{>>}
 \break
+
+\textbf{NOTA:} Esiste anche una funzione simile, chiamata \textit{fprint}; per utilizzarla va installato MuPAD (un 
+modulo del Symbolic Toolbox per il calcolo simbolico) oltre al core di MATLAB.
 
 \newpage
 E' anche possibile inserire numeri all'interno di una stringa, e definire la loro visualizzazione mediante la seguente 

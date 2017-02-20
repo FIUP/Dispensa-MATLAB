@@ -7,11 +7,11 @@ L'istruzione condizionale principalmente utilizzata è l'istruzione \texttt{if}:
 
 \begin{center}
 \texttt{if } \textit{espressione} \\ 
-\hspace{1.5cm}\textit{istruzioni}  \\
+\hspace{1.5cm}\textit{istruzioni;}  \\
 \hspace{1cm}\texttt{elseif } \textit{espressione} \\ 
-\hspace{1.4cm}\textit{istruzioni}  \\
+\hspace{1.4cm}\textit{istruzioni;}  \\
 \hspace{-1.8cm}\texttt{else} \\ 
-\hspace{1.4cm}\textit{istruzioni}  \\
+\hspace{1.4cm}\textit{istruzioni;}  \\
 \hspace{-2cm}\texttt{end}
 \end{center}
 
@@ -20,12 +20,12 @@ Oltre all'istruzione  \texttt{if} esiste anche quella di \texttt{switch}:
 \begin{center}
 \texttt{switch } \textit{espressione\_di\_switch} \\ 
 \hspace{1cm}\texttt{case } \textit{espressione\_di\_case} \\ 
-\hspace{1.4cm}\textit{istruzioni}  \\
+\hspace{1.4cm}\textit{istruzioni;}  \\
 \hspace{1cm}\texttt{case } \textit{espressione\_di\_case} \\ 
-\hspace{1.4cm}\textit{istruzioni}  \\
+\hspace{1.4cm}\textit{istruzioni;}  \\
 \hspace{2cm} \texttt{...} \\
 \hspace{-2cm}\texttt{otherwise } \\ 
-\hspace{1.4cm}\textit{istruzioni}  \\
+\hspace{1.4cm}\textit{istruzioni;}  \\
 \hspace{-5cm}\texttt{end}
 \end{center}
 
@@ -41,21 +41,29 @@ Gli operatori di confronto sono i seguenti:
 
 \end{itemize}
 
-Inoltre più espressioni logiche possono essere combinate tra loro mediante i seguenti:
+In MATLAB il valore vero è rappresentato da 1 e il falso dal valore 0.
+Più espressioni logiche possono essere combinate tra loro mediante i seguenti:
 \begin{itemize}
 
 	\item	\texttt{\&\& }: and.
 	\item	\texttt{|| }: or.
 	\item	\texttt{\textasciitilde }: not
-	\item	\texttt{\& }: and componente per componente.
-	\item	\texttt{| }: or componente per componente.
+	\item	\texttt{\& }: and logico componente per componente.
+	\item	\texttt{| }: or logico componente per componente.
+    \item	\texttt{xor(A,B)}: fa l'or esclusivo di A e B.
+    \item	\texttt{any(a)}: restituisce true se c'è qualche elemento diverso da zero.
+    \item	\texttt{all(x)}: true se tutti sono diversi da zero. 
+    \item	\texttt{isnan(x)}: true per ciascun valore NaN in x.
+    \item	\texttt{isinf(x)}: true per ciascun valore Inf.
+    \item	\texttt{finite(x)}: true per ciascun valore finito.
 
 \end{itemize}
 
 
 \section{Cicli \texttt{for} e \texttt{while}}
 \subsection{Il ciclo \texttt{for}}
-Il ciclo \texttt{for} itera una porzione di codice, al variare di certi indici. La sua scrittura è la seguente:
+Il ciclo \texttt{for} itera una porzione di codice, al variare di certi indici. Va usato quando è noto il numero di 
+volte in cui compiere il ciclo. La sua scrittura è la seguente:
 \begin{center}
 \texttt{for } \textit{variabile} \texttt{=} \textit{vettore} \\ 
 \hspace{1.5cm}\textit{istruzioni}  \\
