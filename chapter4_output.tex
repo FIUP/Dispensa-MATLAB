@@ -82,6 +82,33 @@ Esempio di utilizzo con una caratteri speciali: \\
 \texttt{La variabile b vale 1.51235e+01, mentre a vale 10.12346} \\
 \texttt{>> } \\
 
+\section{Convertire immagini}
+Di seguito si riepilogano le più comuni funzioni per convertire e trattare immagini.\\
+
+Funzioni di conversione: \\
+\begin{itemize}
+    \item	\texttt{im2uint8}: conversione da immagini a matrici di uint8.
+    \item	\texttt{im2uint16}: conversione da immagini a matrici di uint16.
+    \item	\texttt{mat2gray}: converte una matrice in scala di grigi
+    \item	\texttt{im2double}: conerte una martice in precisione doppia
+    \item	\texttt{im2bw}: da immagine a matrice binaria (in bianco e nero)
+    \item	\texttt{rgb2gray}: da RGB a scala di grigi
+    \item	\texttt{rgb2ycbcr}: da RGB a YCbCr
+\end{itemize}
+
+Operazioni con le immagini: \\
+
+\begin{itemize}
+    \item	\texttt{imadd}: somma tra immagini o tra immagine e costante.
+    \item	\texttt{imsubtract}: sottrazione tra immagini o tra immagine e costante.
+    \item	\texttt{imultiply}: moltiplicazione tra immagini o tra immagine e costante.
+    \item	\texttt{imdivide}: divisione tra immagini o tra immagine e costante.
+    \item	\texttt{imabsdiff}: restituisce la differenza passata poi in valore assoluto di due immagini.
+    \item	\texttt{imcomplement}: calcola l'immagine complementare.
+    \item	\texttt{imlincomb}: calcola una combinazione lineare di due o più immagini.
+    \item	\texttt{imfilter}: per gestire filtri su bordi, ecc...
+\end{itemize}
+
 \section{Output su file}
 All'interno di MATLAB è possibile anche eseguire stampe su file. Per fare ciò è sufficiente fare come segue.
 \begin{enumerate}
