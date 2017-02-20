@@ -1,4 +1,4 @@
-\chapter{Comandi di output}
+\chapter{Comandi di input / output}
 MATLAB dispone di due principali comandi di output a video: \texttt{disp} e \texttt{frpint}.
 \section{Output su video}
 \subsection{Il comando \texttt{disp}}
@@ -82,7 +82,7 @@ Esempio di utilizzo con una caratteri speciali: \\
 \texttt{La variabile b vale 1.51235e+01, mentre a vale 10.12346} \\
 \texttt{>> } \\
 
-\section{Convertire immagini}
+\section{Gestire immagini}
 Di seguito si riepilogano le più comuni funzioni per convertire e trattare immagini.\\
 
 Funzioni di conversione: \\
@@ -109,6 +109,21 @@ Operazioni con le immagini: \\
     \item	\texttt{imfilter}: per gestire filtri su bordi, ecc...
 \end{itemize}
 
+\section{File di input}
+Ciascun file da caricare dovrà trovarsi nella directory di lavoro di MATLAB; un handler gestirà una copia del file e 
+non direttamente la sorgente. Le funzioni più comuni da utilizzare sono:
+
+\begin{itemize}
+    \item	\texttt{load('nomefile.ext')}: carica un file di estensione ext.
+    \item	\texttt{imread('nomeimm.jpg')}: legge l'immagine da un file grafico.
+    \item	\texttt{length(immagine)}: ritorna la dimensione dell'immagine.
+    \item	\texttt{size(immagine)}: restituisce altezza, larghezza, livelli (canali colore RGB).
+    \item	\texttt{valorePixel}: immagine(3,4,2) restituisce il pixel della quarta colonna, 3 riga, 2 canale colore. 
+    Si parte a contare dal primo pixel in alto a sinistra. 
+    \item	\texttt{imwrite(matriceImmagine,nomefile,ext)}: salva la matrice depositata nell'handler.
+    \item	\texttt{imshow(nomeVariabileImmagine)}: mostra l'immagine a video.
+\end{itemize}
+
 \section{Output su file}
 All'interno di MATLAB è possibile anche eseguire stampe su file. Per fare ciò è sufficiente fare come segue.
 \begin{enumerate}
@@ -123,3 +138,5 @@ All'interno di MATLAB è possibile anche eseguire stampe su file. Per fare ciò 
 	\item 	Chiudere il file tramite il comando \texttt{fclose(\textit{file\_id})}. \\
 			Esempio: \\ \texttt{fclose(fileID);}
 \end{enumerate}
+
+\texttt{save nomefile x, v2}: gestisce il salvataggio su file, salvando nel file ``nomefile'' le variabili x e v2.
