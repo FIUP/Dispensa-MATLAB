@@ -1,4 +1,7 @@
 \chapter{Utility generali}
+In MATLAB tutto è visto come una matrice, o un vettore. Esistono vari toolbox che sono raccolte di funzioni (come i 
+package o le librerie di altri linguaggi).
+
 All'interno di MATLAB esistono vari comandi che aiutano l'utente a districarsi tra le varie sue funzionalità.
 Tra i più importanti ricordiamo sicuramente:
 
@@ -20,7 +23,7 @@ Tra i più importanti ricordiamo sicuramente:
 		  	
 	\item	\textbf{lookfor} \\
 			Questo comando viene utilizzato quando si vuole trovare il nome di una funzione che svolga un dato
-			compito. Viene utilizzata nei seguenti modi:
+			compito. E' utile se so cosa usare ma non ricordo il comando esatto. Viene utilizzata nei seguenti modi:
 			\begin{enumerate}
 			
 				\item 	\texttt{lookfor \textcolor{blue}{topic}}: ricerca la stringa \textcolor{blue}{topic}
@@ -31,7 +34,22 @@ Tra i più importanti ricordiamo sicuramente:
 				\item 	\texttt{lookfor \textcolor{blue}{topic} \textcolor{red}{-all}}: ricerca una corrispondenza 
 						per la stringa \textcolor{blue}{topic} nell'\textcolor{red}{intero} primo blocco di 
 						commento dei programmi nel percorso di ricerca.
-			
 			\end{enumerate}
-	
+        
+    \item    \textbf{Comandi di pulizia}\\
+            \begin{enumerate}
+                \item \texttt{clear}: pulisce tutto il workspace, eliminando tutte le variabili allocate.
+                \item \texttt{clear \textcolor{blue}{nomeVariabile}}: elimina dal workspace solo la variabile indicata.
+                \item \texttt{clc}: pulisce la command window.
+            \end{enumerate}
+        
+    \item   \textbf{Altri }  \\
+            \begin{enumerate}
+                \item \texttt{dir}: come su Windows, mostra l'elenco dei file presenti nella directory, molti altri 
+                comandi del prompt di Windows possono essere usati in MATLAB.
+                \item \texttt{...}: spezza l'istruzione su più righe.
+                \item \texttt{;}: NON mostra il risultato dell'operazione a video
+                \item \texttt{,}: separa istruzioni o valori
+                \item \texttt{\%}: attiva la modalità commento
+            \end{enumerate}
 \end{itemize}
