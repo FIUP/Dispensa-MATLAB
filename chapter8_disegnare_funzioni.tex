@@ -1,7 +1,7 @@
 \chapter{Disegnare le funzioni}
 \section{Il comando \texttt{plot}}
 All'interno di MATLAB è possibile disegnare il grafico delle funzioni, attraverso il comando \texttt{plot}.
-La segnatura di questo comando è la seguente:
+La firma di questo comando è la seguente:
 $$ \texttt{plot(X, Y)} $$
 Questo crea un grafico 2D dei dati in \texttt{Y} contro i corrispondenti dati in \texttt{X}.
 \begin{itemize}
@@ -27,5 +27,17 @@ gli stessi assi per le varie linee. \break \\
 \textcolor{Red}{\textbf{N.B.}} Per vedere tutte le opzioni della funzione \texttt{plot} è utile il comando \texttt{help 
 plot}.
 
-Per sovrapporre più grafici, si usano i comandi \texttt{holdon} e \texttt{holdoff}, intervallati dai plot da 
+Per sovrapporre più grafici, si usano i comandi \texttt{holdon} (mostra più curve alla volta) e \texttt{holdoff}, 
+intervallati dai plot da 
 sovrapporre.
+
+\section{Altre funzioni utili}
+\begin{itemize}
+    \item \texttt{xlabel('etichetta')}: etichetta l'asse delle x
+    \item \texttt{ylabel('etichetta')}: etichetta l'asse delle y
+    \item \texttt{title}: da un titolo al grafico
+    \item \texttt{axis equal}: non scala il grafico
+    \item \texttt{semilogy(x2, y2, 'g+')}: al posto di plot utilizza una scala logaritmica in base 10 per l'asse delle y
+    \item \texttt{subplot(m,n,k)}: m righe per n colonne; disegna m*n grafici, k indica che le istruzioni che seguono 
+    si riferiscono al kappesimo grafico. Si parte a contare dal primo in alto a sinistra, verso destra.
+\end{itemize}
