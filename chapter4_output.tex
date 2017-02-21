@@ -3,20 +3,33 @@ MATLAB dispone di due principali comandi di output a video: \texttt{disp} e \tex
 \section{Output su video}
 \subsection{Il comando \texttt{disp}}
 Il comando \texttt{disp} serve per visualizzare una stringa o il valore di una variabile. \\
+Per visualizzare testo, od espressioni numeriche, il comando più adatto è \texttt{display}. \\
 Le stringhe che si vogliono visualizzare devono essere incluse tra due apostrofi semplici \texttt{'}.
 \break
 			
 Esempio di utilizzo con una stringa semplice: \\
 \texttt{>> disp('Questa stringa verrà visualizzata a video')} 
 \break
-			
+\texttt{>> disp(['pi vale',num2str(pi), 'in formato short'])} 
+\break	
+\texttt{>> display('Ciao Mondo!')} 
+\break		
+
 Per visualizzare il valore di una variabile è necessario utilizzare la funzione \texttt{num2str(x)} che converte il 
 valore di \texttt{x} in stringa. Inoltre per concatenare le due stringhe bisogna trattare la loro unione come un 
 vettore. 
 \break
 			
 Esempio di utilizzo con una stringa ed una variabile: \\
+
 \texttt{>> disp(['Il valore di pi è: ', num2str(pi), 'in formato short.'])}
+\break
+
+\textbf{NOTA:} Per visualizzare un'apostrofo, occorre inserirne due.
+
+Il comando: \\
+
+\texttt{>> a=input (’Scrivi un numero intero positivo:’);} chiede un input e lo salva nella variabile ``a''. 
 
 \subsection{Il comando \texttt{fprintf}}
 Questo comando server per visualizzare un insieme di dati di output con un certo formato. Esso inoltre ha una gestione 
@@ -81,6 +94,9 @@ Esempio di utilizzo con una caratteri speciali: \\
 \texttt{>> fprint('La variabile b vale \%2\$1.5f, mentre a vale \%1\$2.5e \textbackslash n', a, b)} \\
 \texttt{La variabile b vale 1.51235e+01, mentre a vale 10.12346} \\
 \texttt{>> } \\
+
+Riepilogo: \\
+\%f formato decimale; \%e esponenziale es: fprintf('la variabile s vale \%2.5f \\n',s).
 
 \section{Gestire immagini}
 Di seguito si riepilogano le più comuni funzioni per convertire e trattare immagini.\\
