@@ -1,0 +1,114 @@
+\chapter{Istruzioni condizionali, cicli for e while}
+Come all'interno di molti linguaggi di programmazione, anche nel linguaggio MATLAB è possibile utilizzare le istruzioni 
+condizionali e i cicli for e while.
+
+\section{Istruzioni condizionali}
+L'istruzione condizionale principalmente utilizzata è l'istruzione \texttt{if}: \break
+
+\begin{center}
+\texttt{if} \textit{espressione} \\ 
+\hspace{1.5cm}\textit{istruzioni;}  \\
+\hspace{1cm}\texttt{elseif } \textit{espressione} \\ 
+\hspace{1.4cm}\textit{istruzioni;}  \\
+\hspace{-1.8cm}\texttt{else} \\ 
+\hspace{1.4cm}\textit{istruzioni;}  \\
+\hspace{-2cm}\texttt{end}
+\end{center}
+
+Oltre all'istruzione  \texttt{if} esiste anche quella di \texttt{switch}:
+
+\begin{center}
+\texttt{switch} \textit{espressione\_di\_switch} \\ 
+\hspace{1cm}\texttt{case } \textit{espressione\_di\_case} \\ 
+\hspace{1.4cm}\textit{istruzioni;}  \\
+\hspace{1cm}\texttt{case } \textit{espressione\_di\_case} \\ 
+\hspace{1.4cm}\textit{istruzioni;}  \\
+\hspace{2cm} \texttt{...} \\
+\hspace{-2cm}\texttt{otherwise } \\ 
+\hspace{1.4cm}\textit{istruzioni;}  \\
+\hspace{-5cm}\texttt{end}
+\end{center}
+
+Gli operatori di confronto sono i seguenti:
+\begin{itemize}
+
+	\item	\texttt{== }: uguale.
+	\item	\texttt{\textasciitilde= }: non uguale.
+	\item	\texttt{< }: minore.
+	\item	\texttt{> }: maggiore.
+	\item	\texttt{<= }: minore o uguale.
+	\item 	\texttt{>= }: maggiore o uguale.
+
+\end{itemize}
+
+In MATLAB il valore vero è rappresentato da 1 e il falso dal valore 0.
+Più espressioni logiche possono essere combinate tra loro mediante i seguenti:
+\begin{itemize}
+
+	\item	\texttt{\&\& }: and.
+	\item	\texttt{|| }: or.
+	\item	\texttt{\textasciitilde }: not
+	\item	\texttt{\& }: and logico componente per componente.
+	\item	\texttt{| }: or logico componente per componente.
+    \item	\texttt{xor(A,B)}: fa l'or esclusivo di A e B.
+    \item	\texttt{any(a)}: restituisce true se c'è qualche elemento diverso da zero.
+    \item	\texttt{all(x)}: true se tutti sono diversi da zero. 
+    \item	\texttt{isnan(x)}: true per ciascun valore NaN in x.
+    \item	\texttt{isinf(x)}: true per ciascun valore Inf.
+    \item	\texttt{finite(x)}: true per ciascun valore finito.
+
+\end{itemize}
+
+
+\section{Cicli \texttt{for} e \texttt{while}}
+
+\subsection{Cicli impliciti}
+In MATLAB i due punti (\texttt{:}) indicano la presenza di un ciclo implicito. \\
+
+Ad esempio: \\
+\texttt{x = 1:5}: a passi di 1 si cicla 5 volte, assegnando poi i valori al vettore riga x. \\
+\texttt{y = 1: .2 : 2}: vado da 1 a 2 a passi di 0.2. \\
+\texttt{y(1:3) = 0}: assegno 0 ai primi 3 valori di y. \\
+
+Con le matrici i cicli funzionano per colonne, non per riga\\
+
+$$ y = 
+\begin{bmatrix}
+    x_{1}       & x_{4} & x_{7} \\
+    x_{2}       & x_{5} & x_{8} \\
+    x_{3}       & x_{6} & x_{9}
+\end{bmatrix}$$
+\\
+Usando i due punti è possibile anche assegnare valori, ad esempio, con l'istruzione:\\
+\texttt{y(:) = 1}: Assegnamo ad ogni elemento di y, il valore 1.
+
+\subsection{Il ciclo \texttt{for}}
+Il ciclo \texttt{for} itera una porzione di codice, al variare di certi indici. Va usato quando è noto il numero di 
+volte in cui compiere il ciclo. La sua scrittura è la seguente:
+\begin{center}
+\texttt{for } \textit{variabile} \texttt{=} \textit{vettore} \\ 
+\hspace{1.5cm}\textit{istruzioni}  \\
+\hspace{-3.5cm}\texttt{end}
+\end{center}
+
+Esempio: \\
+\texttt{>> s=0;} \\
+\texttt{for } \texttt{j = 1:10} \\ 
+\hspace{1cm}\texttt{s=s+j;}  \\
+\texttt{end}
+
+\subsection{Il ciclo \texttt{while}}
+Il ciclo \texttt{while}, a differenza di quello \texttt{for}, viene utilizzato quando \textbf{non è noto a priori} il 
+numero di volte che il ciclo dovrà iterare. \\
+La sua scrittura è la seguente:
+\begin{center}
+\texttt{while } \textit{espressione\_logica} \\ 
+\hspace{1.5cm}\textit{istruzioni}  \\
+\hspace{-4.1cm}\texttt{end}
+\end{center}
+
+Esempio: \\
+\texttt{>> s=1;} \\
+\texttt{while } \texttt{s>0} \\ 
+\hspace{1cm}\texttt{s=rand(1)-0.5;}  \\
+\texttt{end}
